@@ -2,15 +2,44 @@
 
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { FC } from "react";
-import { createEvent } from "@/api/postEvent";
+import { FC, useState } from "react";
+import axios from "axios";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const CreateEvent: FC = () => {
-  const handleOnSubmit = () => {
-    console.log("test");
+  const queryClient = useQueryClient();
+
+  const [isLoading, setIsloading] = useState<boolean>(false);
+
+  const handleOnSubmit = async (values: NewEventData) => {
+    console.log(values);
+    try {
+      setIsloading(true);
+      const response = await axios.post(
+        "http://localhost:3000/events",
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response);
+      if (response.status === 201) {
+        alert("Create new event success !");
+      }
+    } catch (error) {
+      alert(error);
+    } finally {
+      setIsloading(false);
+    }
   };
 
-  const initialValues = {
+  interface NewEventData {
+    name: string;
+  }
+
+  const initialValues: NewEventData = {
     name: "",
   };
 
