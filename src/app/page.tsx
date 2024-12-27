@@ -5,12 +5,12 @@ import Navbar from "@/components/NavBar";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
       <h1 className="font-bold text-center mt-10 text-xl">List of events</h1>
-      <div className="flex-grow">
+      {/* <div className="flex-grow">
         <EventList></EventList>
       </div>
-      <Cart></Cart>
+      <Cart></Cart> */}
     </div>
   );
 }

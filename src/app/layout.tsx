@@ -17,13 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReactQueryProvider>
-        <EventProvider>
-          <CartProvider>
-            <body>{children}</body>
-          </CartProvider>
-        </EventProvider>
-      </ReactQueryProvider>
+      {/* <ReactQueryProvider> */}
+      {/* <EventProvider> */}
+      {/* <CartProvider> */}
+      <body>{children}</body>
+      {/* </CartProvider> */}
+      {/* </EventProvider> */}
+      {/* </ReactQueryProvider> */}
     </html>
   );
 }
